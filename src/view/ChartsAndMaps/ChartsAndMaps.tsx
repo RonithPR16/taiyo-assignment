@@ -60,7 +60,7 @@ const ChartsAndMaps = () => {
     <div className="w-full flex flex-col items-center justify-center p-4">
       <h1 className="text-2xl">Covid cases graph chart</h1>
       <div
-        className="m-auto mt-10 w-[80%] h-[400px] overflow-y-hidden border border-black"
+        className="m-auto mt-10 w-[100%] lg:w-[80%] h-[400px] overflow-y-hidden border border-black"
       >
         <Line data={casesData} options={options} width={chartWidth} height={400} />
       </div>
