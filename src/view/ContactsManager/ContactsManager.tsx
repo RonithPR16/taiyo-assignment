@@ -45,7 +45,7 @@ function ContactsManager() {
         <h2 className='font-medium'>Please add contact from Create contact button </h2>
       </div> : <>
         <div className='flex flex-col gap-2'>
-          {users.map((user) => <ContactCard user={user} onDelete={() => {
+          {users.map((user) => <ContactCard key={user.id} user={user} onDelete={() => {
             setShowDeleteModal({ id: user.id, showDelete: true })
           }} onEdit={() => {
             setUserInfo(user);
