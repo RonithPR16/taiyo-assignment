@@ -1,70 +1,85 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Contact Management & Dashboard App
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+- [Contact Management](#contact-management)
+- [Charts and Maps Dashboard](#charts-and-maps-dashboard)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `yarn start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This application is a simple contact management system and a dashboard for visualizing case data using charts and maps. The app allows users to add, view, edit, and delete contacts while using Redux for state management. The dashboard includes a line graph for case fluctuations and a React Leaflet map displaying country-specific data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `yarn test`
+### Contact Management
+- **Add New Contacts:** A form to add new contacts.
+- **View Contacts List:** Displays a list of all added contacts.
+- **Edit Contacts:** Allows editing of existing contacts.
+- **Delete Contacts:** Allows deletion of contacts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Charts and Maps Dashboard
+- **Line Graph:** Displays the fluctuation in covid cases over time.
+- **Interactive Map:** A React Leaflet map with markers showing country-specific information such as the total number of active, recovered cases, and deaths.
 
-### `yarn build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React.js:** For building the user interface.
+- **Redux:** For state management of contact data.
+- **React Router:** For navigation between different pages.
+- **React Leaflet:** For map rendering and interaction.
+- **Chart.js:** For displaying the line graph.
+- **Tailwind:** For styling the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup and Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/RonithPR16/taiyo-assignment.git
+   ```
 
-### `yarn eject`
+2. Navigate to the project directory:
+   ```bash
+   cd contact-dashboard-app
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Install the dependencies:
+   ```bash
+   yarn
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Start the development server:
+   ```bash
+   yarn start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Open your browser and visit `http://localhost:3000` to see the app in action.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+### Contact Management
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Add Contacts:**
+   - Navigate to the "Contacts" page.
+   - Fill in the form to add a new contact.
+   - Click "Create contact" to add the contact to the list.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Edit or Delete Contacts:**
+   - Use the "Edit" button to update contact information.
+   - Use the "Delete" button to remove a contact.
 
-### Code Splitting
+### Charts and Maps Dashboard
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **View Dashboard:**
+   - Navigate to the "Analytics" page to see the line graph showing case fluctuations and the interactive map with markers.
 
-### Analyzing the Bundle Size
+2. **Interact with the Map:**
+   - Hover over or click on the map markers to see country-specific case data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

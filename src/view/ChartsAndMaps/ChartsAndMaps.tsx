@@ -26,6 +26,9 @@ const ChartsAndMaps = () => {
   if (isLoading || isError || !data) return <div className="h-full w-full flex items-center justify-center"><p>Loading..</p></div>;
 
   const casesData = {
+
+    //adding .slice(0,300) because we are getting 1200 items from the api which is taking time to load in the graph causing the screen to be stuck, hence slicing it
+    // this can be solved if there is pagination feature enabled in the backend where we can query data lazyly and display it to the users without any issues.
     labels: Object.keys(data?.cases).map((key) => key).slice(0, 300),
     datasets: [
       {
