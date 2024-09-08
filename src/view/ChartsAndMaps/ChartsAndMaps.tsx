@@ -23,15 +23,13 @@ const ChartsAndMaps = () => {
 
   if (isLoading || isError || !data) return <></>;
 
-  console.log(Object.values(data?.cases).map((val) => val),'here');
-  
 
   const casesData = {
-    labels: Object.keys(data?.cases).map((key) => key).splice(0,50),
+    labels: Object.keys(data?.cases).map((key) => key).slice(0, 300),
     datasets: [
       {
         label: "Dataset",
-        data: Object.values(data?.cases).map((val) => val).splice(0,50),
+        data: Object.values(data?.cases).map((val) => val).slice(0, 300),
         borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 2,
         fill: false,
@@ -59,15 +57,13 @@ const ChartsAndMaps = () => {
   };
   const chartWidth = casesData.labels.length * 25;
   return (
-    <div
-      style={{
-        width: "100%",
-        overflowX: "auto",
-        overflowY: "auto",
-        border: "1px solid black",
-      }}
-    >
-      <Line data={casesData} options={options} width={chartWidth} height={750} />
+    <div className="w-full flex flex-col items-center justify-center p-4">
+      <h1 className="text-2xl">Covid cases graph chart</h1>
+      <div
+        className="m-auto mt-10 w-[80%] h-[400px] overflow-y-hidden border border-black"
+      >
+        <Line data={casesData} options={options} width={chartWidth} height={400} />
+      </div>
     </div>
   );
 };

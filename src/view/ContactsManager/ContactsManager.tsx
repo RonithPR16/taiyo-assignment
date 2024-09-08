@@ -4,10 +4,10 @@ import CustomModal from '../../components/CustomModal';
 import { ContactDetailsProp } from '../../types/contact-info.type';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { addContact } from '../../store/slices/contactsStore';
 import ContactCard from './components/ContactCard';
 import ContactForm from './components/ContactForm';
 import DeleteContactModal from './components/DeleteContactModal';
+import { addOrEditContact } from '../../store/slices/contactsStore';
 
 function ContactsManager() {
   const dispatch = useDispatch()
@@ -17,22 +17,24 @@ function ContactsManager() {
     id: '',
     showDelete: false
   });
-  const [userInfo, setUserInfo] = useState<ContactDetailsProp>({
-    firstName: '',
-    id: '',
-    lastName: '',
-    phoneNumber: '',
-    status: 'active'
-  })
+  const defaultUserInfo: ContactDetailsProp = {
+    firstName: "",
+    id: "",
+    lastName: "",
+    phoneNumber: "",
+    status: "active",
+  };
+  const [userInfo, setUserInfo] = useState<ContactDetailsProp>(defaultUserInfo)
 
-
-  const handleAddContact = () => {
-    dispatch(addContact(userInfo))
-    setShowModal(!showModal)
-  }
+const handleAddOrEditContact = () => {
+    dispatch(addOrEditContact(userInfo));
+    setShowModal(!showModal);
+    setUserInfo(defaultUserInfo)
+  };
 
   const handleModelClose = () => {
-    setShowModal(!showModal)
+    setShowModal(!showModal);
+    setUserInfo(defaultUserInfo)
   }
 
   return (
@@ -58,14 +60,14 @@ function ContactsManager() {
         <ContactForm
           userInfo={userInfo}
           setUserInfo={setUserInfo}
-          onSubmit={handleAddContact}
+          onSubmit={handleAddOrEditContact}
         />
       </CustomModal>
 
       <CustomModal visible={showDeleteModal.showDelete} setVisible={() => {
         setShowDeleteModal({ id: '', showDelete: false })
       }}>
-        <DeleteContactModal id={showDeleteModal.id} />
+        <DeleteContactModal id={showDeleteModal.id} setShowDeleteModal={setShowDeleteModal}/>
       </CustomModal>
     </div>
 

@@ -39,7 +39,7 @@ function ContactForm({setUserInfo,userInfo,onSubmit}: Props) {
             </div>
           </div>
           <div className="mt-5 flex justify-end">
-            <PrimaryButton label='Create contact' onClick={onSubmit} />
+            <PrimaryButton label={`${userInfo.id.length ? 'Save Changes':'Create contact'}`} onClick={onSubmit} />
           </div>
         </div>
   )
