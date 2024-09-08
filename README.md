@@ -10,8 +10,6 @@
 - [Usage](#usage)
 - [Contact Management](#contact-management)
 - [Charts and Maps Dashboard](#charts-and-maps-dashboard)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
