@@ -27,9 +27,6 @@ function ContactsManager() {
   const [userInfo, setUserInfo] = useState<ContactDetailsProp>(defaultUserInfo)
 
   const handleAddOrEditContact = () => {
-    const {id,...data} = userInfo
-    const isInvalid = Object.values(data).includes('') || userInfo.phoneNumber.length < 10;
-    if(isInvalid) return
     dispatch(addOrEditContact(userInfo));
     setShowModal(!showModal);
     setUserInfo(defaultUserInfo)

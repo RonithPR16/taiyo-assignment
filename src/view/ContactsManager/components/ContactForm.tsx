@@ -2,6 +2,7 @@ import CustomInput from '../../../components/CustomInput'
 import { ContactDetailsProp } from '../../../types/contact-info.type'
 import RadioButton from '../../../components/RadioButton';
 import PrimaryButton from '../../../components/PrimaryButton';
+import { useCallback } from 'react';
 
 type Props = {
   userInfo: ContactDetailsProp;
@@ -10,6 +11,12 @@ type Props = {
 }
 
 function ContactForm({ setUserInfo, userInfo, onSubmit }: Props) {
+
+  const checkValid = useCallback(() => {
+    const {id,...data} = userInfo
+    const isInvalid = Object.values(data).includes('') || userInfo.phoneNumber.length < 10;
+    return isInvalid
+  },[userInfo])
 
   return (
     <div className='bg-white w-full'>
@@ -40,7 +47,11 @@ function ContactForm({ setUserInfo, userInfo, onSubmit }: Props) {
         </div>
       </div>
       <div className="mt-5 flex justify-end">
-        <PrimaryButton label={`${userInfo.id.length ? 'Save Changes' : 'Create contact'}`} onClick={onSubmit} />
+        <PrimaryButton
+          label={`${userInfo.id.length ? 'Save Changes' : 'Create contact'}`}
+          onClick={onSubmit}
+          isDisabled={checkValid()}
+        />
       </div>
     </div>
   )

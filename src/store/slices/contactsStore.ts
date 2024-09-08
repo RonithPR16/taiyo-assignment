@@ -13,16 +13,9 @@ const initialState: ContactsState = {
             firstName: 'Ronith',
             id: getUniqueId(),
             lastName: 'PR',
-            phoneNumber: '98037876',
+            phoneNumber: '8908767899',
             status:'active'
         },
-         {
-            firstName: 'Test',
-            id:  getUniqueId(),
-            lastName: 'PR',
-            phoneNumber: '98037234876',
-            status:'inactive'
-      }
   ],
 }
 
@@ -47,7 +40,6 @@ export const contactsSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { addOrEditContact ,deleteContact} = contactsSlice.actions
 
 export default contactsSlice.reducer
