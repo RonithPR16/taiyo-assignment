@@ -69,7 +69,9 @@ const ChartsAndMaps = () => {
         <Line data={casesData} options={options} width={chartWidth} height={400} />
       </div>
       <h1 className="text-2xl">World cases</h1>
-      <WorldMap/>
+      <div className="mb-10">
+        <WorldMap/>
+      </div>
     </div>
   );
 };
