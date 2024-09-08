@@ -1,6 +1,6 @@
 import { AddressBook, ChartLine } from "@phosphor-icons/react";
 import { IconSize } from "../constants/icon-size.constants";
-import { SidebarItemProps } from "../types/sidebar.types";
+import { SidebarItemProps } from "../types/sidebar.type";
 
 
 
