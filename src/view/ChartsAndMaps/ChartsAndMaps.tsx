@@ -23,8 +23,7 @@ const ChartsAndMaps = () => {
     refetchOnWindowFocus:false
   });
 
-  if (isLoading || isError || !data) return <></>;
-
+  if (isLoading || isError || !data) return <div className="h-full w-full flex items-center justify-center"><p>Loading..</p></div>;
 
   const casesData = {
     labels: Object.keys(data?.cases).map((key) => key).slice(0, 300),
@@ -40,13 +39,13 @@ const ChartsAndMaps = () => {
   };
 
   const options = {
-    responsive: false, // Allows fixed sizing
-    maintainAspectRatio: false, // Allows us to control height/width
+    responsive: false, 
+    maintainAspectRatio: false, 
     scales: {
       x: {
         beginAtZero: true,
         grid: {
-          display: false, // Optionally hide vertical grid lines
+          display: false,
         },
       },
       y: {
@@ -59,13 +58,14 @@ const ChartsAndMaps = () => {
   };
   const chartWidth = casesData.labels.length * 25;
   return (
-    <div className="w-full flex flex-col items-center justify-center p-4">
+    <div className="w-full flex flex-col items-center justify-center p-4 gap-10">
       <h1 className="text-2xl">Covid cases graph chart</h1>
       <div
-        className="m-auto mt-10 w-[100%] lg:w-[80%] h-[400px] overflow-y-hidden border border-black"
+        className="m-auto w-[100%] lg:w-[80%] h-[400px] overflow-y-hidden border border-black"
       >
         <Line data={casesData} options={options} width={chartWidth} height={400} />
       </div>
+      <h1 className="text-2xl">World cases</h1>
       <WorldMap/>
     </div>
   );
