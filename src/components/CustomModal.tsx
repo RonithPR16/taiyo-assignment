@@ -63,11 +63,11 @@ const CustomModal = ({
                     }}
                 />
                 <div
-                    className='fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 bg-white p-[50px] z-[1000]'
+                    className='fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 bg-white z-[1000] rounded-xl'
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div
-                        className='flex items-center lg:min-w-[500px] min-h-[200px] lg:max-w-[70vw] max-h-[70vh] bg-[var(--modal-background-color)] rounded-xl py-5 px-6'
+                        className='flex items-center min-w-[90vw] lg:min-w-[500px] min-h-[200px] lg:max-w-[70vw] max-h-[70vh] bg-[var(--modal-background-color)] rounded-xl py-5 px-6'
                     >
                         {children}
                     </div>

@@ -12,6 +12,7 @@
   --primary-button-color:#050708;
   --primary-button-hover-color:#11151e;
   --modal-background-color: #FFF;
+  --radio-button-color:#050708;
 }
 
 
@@ -24,3 +25,23 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+input[type="radio"] + label span {
+    transition:background  .2s,
+      transform .2s;
+}
+
+input[type="radio"] + label span:hover,
+input[type="radio"] + label:hover span{
+  transform: scale(1.2);
+} 
+
+input[type="radio"]:checked + label span {
+  background-color: var(--radio-button-color);
+  box-shadow: 0px 0px 0px 2px white inset;
+}
+
+input[type="radio"]:checked + label{
+   color: var(--radio-button-color);
+}
+
