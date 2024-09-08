@@ -7,12 +7,16 @@ import { RootState } from '../../store/store';
 import { addContact } from '../../store/slices/contactsStore';
 import ContactCard from './components/ContactCard';
 import ContactForm from './components/ContactForm';
+import DeleteContactModal from './components/DeleteContactModal';
 
 function ContactsManager() {
   const dispatch = useDispatch()
   const users = useSelector((state: RootState) => state.contacts.contacts)
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+  const [showDeleteModal, setShowDeleteModal] = useState<{ id: string; showDelete: boolean }>({
+    id: '',
+    showDelete: false
+  });
   const [userInfo, setUserInfo] = useState<ContactDetailsProp>({
     firstName: '',
     id: '',
@@ -41,9 +45,9 @@ function ContactsManager() {
         <h2 className='font-medium'>Please add contact from Create contact button </h2>
       </div> : <>
         <div className='flex flex-col gap-2'>
-            {users.map((user) => <ContactCard user={user} onDelete={() => {
-            setShowDeleteModal(true)
-           }} onEdit={() => {
+          {users.map((user) => <ContactCard user={user} onDelete={() => {
+            setShowDeleteModal({ id: user.id, showDelete: true })
+          }} onEdit={() => {
             setUserInfo(user);
             setShowModal(true)
           }} />)}
@@ -58,14 +62,10 @@ function ContactsManager() {
         />
       </CustomModal>
 
-      <CustomModal visible={showDeleteModal} setVisible={() => {
-        setShowDeleteModal(true)
-       }}>
-        <ContactForm
-          userInfo={userInfo}
-          setUserInfo={setUserInfo}
-          onSubmit={handleAddContact}
-        />
+      <CustomModal visible={showDeleteModal.showDelete} setVisible={() => {
+        setShowDeleteModal({ id: '', showDelete: false })
+      }}>
+        <DeleteContactModal id={showDeleteModal.id} />
       </CustomModal>
     </div>
 

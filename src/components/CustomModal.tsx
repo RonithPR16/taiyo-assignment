@@ -67,7 +67,7 @@ const CustomModal = ({
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div
-                        className='flex items-center min-w-[90vw] lg:min-w-[500px] min-h-[200px] lg:max-w-[70vw] max-h-[70vh] bg-[var(--modal-background-color)] rounded-xl py-5 px-6'
+                        className='flex items-center min-w-[90vw] lg:min-w-[500px] min-h-[100px] lg:max-w-[70vw] max-h-[70vh] bg-[var(--modal-background-color)] rounded-xl py-5 px-6'
                     >
                         {children}
                     </div>
