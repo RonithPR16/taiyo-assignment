@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "charts",
+    path: "analytics",
     element: (
        <DashboardLayout>
         <ChartsAndMaps/>
