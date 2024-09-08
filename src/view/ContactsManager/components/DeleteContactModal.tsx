@@ -19,10 +19,14 @@ function DeleteContactModal({ id, setShowDeleteModal }: Props) {
                 <PrimaryButton label='Cancel' onClick={() => {
                     setShowDeleteModal({ id: "", showDelete: false })
                 }} />
-                <PrimaryButton label='Delete' onClick={() => {
-                    dispatch(deleteContact(id));
-                    setShowDeleteModal({ id: "", showDelete: false });
-                }} />
+                <PrimaryButton
+                    label='Delete'
+                    onClick={() => {
+                        dispatch(deleteContact(id));
+                        setShowDeleteModal({ id: "", showDelete: false });
+                    }}
+                    type='warning'
+                />
             </div>
         </div>
     )
