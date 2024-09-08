@@ -45,7 +45,7 @@ This application is a simple contact management system and a dashboard for visua
 
 2. Navigate to the project directory:
    ```bash
-   cd contact-dashboard-app
+   cd taiyo-assignment
    ```
 
 3. Install the dependencies:
