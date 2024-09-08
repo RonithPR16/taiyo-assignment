@@ -7,6 +7,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useQuery } from "react-query";
+import WorldMap from "./components/WorldMap";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
@@ -19,6 +20,7 @@ const ChartsAndMaps = () => {
       );
       return await response.json();
     },
+    refetchOnWindowFocus:false
   });
 
   if (isLoading || isError || !data) return <></>;
@@ -64,6 +66,7 @@ const ChartsAndMaps = () => {
       >
         <Line data={casesData} options={options} width={chartWidth} height={400} />
       </div>
+      <WorldMap/>
     </div>
   );
 };
