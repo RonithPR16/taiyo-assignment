@@ -20,20 +20,28 @@ const ChartsAndMaps = () => {
       );
       return await response.json();
     },
-    refetchOnWindowFocus:false
+    refetchOnWindowFocus: false,
   });
 
-  if (isLoading || isError || !data) return <div className="h-full w-full flex items-center justify-center"><p>Loading..</p></div>;
+  if (isLoading || isError || !data)
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <p>Loading..</p>
+      </div>
+    );
 
   const casesData = {
-
     //adding .slice(0,300) because we are getting 1200 items from the api which is taking time to load in the graph causing the screen to be stuck, hence slicing it
     // this can be solved if there is pagination feature enabled in the backend where we can query data lazyly and display it to the users without any issues.
-    labels: Object.keys(data?.cases).map((key) => key).slice(0, 300),
+    labels: Object.keys(data?.cases)
+      .map((key) => key)
+      .slice(0, 300),
     datasets: [
       {
         label: "Dataset",
-        data: Object.values(data?.cases).map((val) => val).slice(0, 300),
+        data: Object.values(data?.cases)
+          .map((val) => val)
+          .slice(0, 300),
         borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 2,
         fill: false,
@@ -42,8 +50,8 @@ const ChartsAndMaps = () => {
   };
 
   const options = {
-    responsive: false, 
-    maintainAspectRatio: false, 
+    responsive: false,
+    maintainAspectRatio: false,
     scales: {
       x: {
         beginAtZero: true,
@@ -61,17 +69,19 @@ const ChartsAndMaps = () => {
   };
   const chartWidth = casesData.labels.length * 25;
   return (
-    <div className="w-full flex flex-col items-center justify-center p-4 gap-10">
+    <div className="flex w-full flex-col items-center justify-center gap-10 p-4">
       <h1 className="text-2xl">Covid cases graph chart</h1>
-      <div
-        className="m-auto w-[100%] lg:w-[80%] h-[400px] overflow-y-hidden border border-black"
-      >
-        <Line data={casesData} options={options} width={chartWidth} height={400} />
+      <div className="m-auto h-[400px] w-[100%] overflow-y-hidden border border-black lg:w-[80%]">
+        <Line
+          data={casesData}
+          options={options}
+          width={chartWidth}
+          height={400}
+        />
       </div>
       <h1 className="text-2xl">World cases</h1>
-      <div className="mb-10">
-        <WorldMap/>
-      </div>
+      <WorldMap />
+      <div />
     </div>
   );
 };
