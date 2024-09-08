@@ -11,7 +11,7 @@ const  DashboardLayout =({children}: Props)=> {
       <div className='w-[var(--sidebar-width)] lg:w-[var(--sidebar-width)] fixed sm:w-11 '>
         <Sidebar/>
       </div>
-      <main className='pl-11 lg:pl-[var(--sidebar-width)] sm:pl-11'>
+      <main className='lg:pl-[var(--sidebar-width)] sm:pl-11 w-full h-screen' >
           {children}
       </main>
     </div>

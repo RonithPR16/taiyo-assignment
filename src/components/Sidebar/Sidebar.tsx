@@ -25,7 +25,7 @@ const Sidebar = () => {
 
             <div
                 className={`sidebar fixed top-0 bottom-0 lg:left-0 ${isSidebarOpen ? 'left-0' : '-left-[var(--sidebar-width)]'} duration-1000
-        p-2 w-[var(--sidebar-width)] overflow-y-auto text-center bg-[#11151e] shadow h-screen`}
+        p-2 w-[var(--sidebar-width)] overflow-y-auto text-center bg-[var(--sidebar-bg-color)] shadow h-screen`}
             >
                 <div className="text-gray-100 text-xl">
                     <div className="p-2.5 my-2 flex items-center rounded-md justify-between mb-5">

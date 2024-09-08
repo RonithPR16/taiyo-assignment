@@ -7,7 +7,10 @@
 :root {
   --primary-color: #fff;
   --secondary-color: #000;
-  --sidebar-width:300px
+  --sidebar-width:300px;
+  --sidebar-bg-color:#11151e;
+  --primary-button-color:#050708;
+  --primary-button-hover-color:#11151e;
 }
 
 
